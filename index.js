@@ -93,3 +93,44 @@ document.querySelector('.subscription')?.addEventListener('submit', (e) => {
     alert(`Subscribed with ${email}!`);
     e.target.reset();
 });
+
+// Filter products by category
+function filterProducts(category) {
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+        const productCategory = product.getAttribute('data-category');
+        const isNew = product.querySelector('.new-label') !== null;
+        const isSoldOut = product.classList.contains('sold-out');
+
+        if (category === 'all') {
+            product.style.display = 'block';
+        } else if (category === 'new' && isNew) {
+            product.style.display = 'block';
+        } else if (category === 'sold-out' && isSoldOut) {
+            product.style.display = 'block';
+        } else if (productCategory === category) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+// Leer el parámetro de categoría de la URL y aplicar el filtro
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category') || 'all'; // Por defecto, muestra "all"
+
+    // Remover la clase "active" de todos los enlaces y añadirla al seleccionado
+    document.querySelectorAll('.sidebar nav a').forEach(link => {
+        const linkText = link.textContent.toLowerCase().replace(' ', '-');
+        if (linkText === category && linkText !== 'whatsapp-community') {
+            link.classList.add('active');
+        } else if (linkText !== 'whatsapp-community') {
+            link.classList.remove('active');
+        }
+    });
+
+    // Aplicar el filtro
+    filterProducts(category);
+});
