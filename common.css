@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +13,7 @@ body {
     overflow: hidden;
 }
 
+/* Header Styles */
 header {
     background: #f1f1f1;
     color: red;
@@ -22,6 +24,7 @@ header {
     justify-content: center;
 }
 
+/* Container Styles */
 .container {
     margin-top: 22.5px;
     display: flex;
@@ -30,6 +33,7 @@ header {
     padding-bottom: 60px;
 }
 
+/* Sidebar Styles */
 .sidebar {
     width: 200px;
     padding: 20px;
@@ -69,12 +73,14 @@ header {
     font-weight: bold;
 }
 
+/* Main Content Styles */
 main {
     flex-grow: 1;
     padding: 20px;
     max-width: 900px;
 }
 
+/* Cart Styles */
 .cart {
     display: flex;
     justify-content: flex-end;
@@ -95,6 +101,7 @@ main {
     color: darkred;
 }
 
+/* Product Grid Styles */
 .product-grid {
     height: 600px;
     overflow-y: scroll;
@@ -119,6 +126,7 @@ main {
     background: darkred;
 }
 
+/* Footer Styles */
 footer {
     position: fixed;
     bottom: 0;

@@ -11,12 +11,14 @@ function updateCartCount() {
     if (cartCount) cartCount.textContent = cart.length;
 }
 
+// DOM Elements
 const cartItems = document.getElementById('cart-items');
 const cartTotal = document.getElementById('cart-total');
 const checkoutBtn = document.getElementById('checkout-btn');
 const shippingMessage = document.getElementById('shipping-message');
 const progressFill = document.getElementById('progress-fill');
 
+// Render Cart
 function renderCart() {
     cartItems.innerHTML = '';
     if (cart.length === 0) {
