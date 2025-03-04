@@ -1,0 +1,85 @@
+/* Override body overflow from common.css */
+body {
+    overflow: hidden; /* Keeps the page from scrolling globally */
+}
+
+/* Main content adjustments */
+main {
+    flex-grow: 1;
+    max-width: 900px;
+    padding: 0; /* Remove padding from main to let scroll-container handle it */
+    overflow: hidden; /* Prevent main from introducing its own scrollbar */
+}
+
+/* Scroll Container Styles */
+.scroll-container {
+    height: calc(100vh - 22.5px - 60px); /* Full height minus header and footer */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* Firefox: thin scrollbar */
+    scrollbar-color: #ff0000 #f1f1f1; /* Firefox: custom scrollbar colors */
+    padding: 20px; /* Inner padding for content */
+}
+
+/* Webkit Scrollbar Customization */
+.scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+    background: darkred;
+}
+
+/* Content Styles */
+.content {
+    max-width: 100%; /* Ensure content fits within scroll-container */
+}
+
+.content h2 {
+    font-size: 24px;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.privacy-section {
+    margin-bottom: 20px;
+}
+
+.privacy-section h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.privacy-section p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.privacy-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.privacy-section li {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.privacy-section a {
+    color: #ff0000;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.privacy-section a:hover {
+    color: darkred;
+}

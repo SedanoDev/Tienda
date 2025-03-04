@@ -47,8 +47,44 @@ document.querySelectorAll('.product').forEach(product => {
     });
 });
 
-// Initial cart count update
+// Filter products by category
+function filterProducts(category) {
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+        const productCategory = product.getAttribute('data-category');
+        if (category === 'all' || productCategory === category) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+// Sidebar navigation filtering (exclude WHATSAPP COMMUNITY)
+document.querySelectorAll('.sidebar nav a').forEach(link => {
+    const text = link.textContent.toLowerCase().replace(' ', '-');
+    if (text !== 'whatsapp-community') { // Skip the WhatsApp link
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            const category = text;
+
+            // Remove active class from all links except WHATSAPP COMMUNITY and add to clicked one
+            document.querySelectorAll('.sidebar nav a').forEach(a => {
+                if (a.textContent.toLowerCase().replace(' ', '-') !== 'whatsapp-community') {
+                    a.classList.remove('active');
+                }
+            });
+            link.classList.add('active');
+
+            // Filter products
+            filterProducts(category === 'all' ? 'all' : category);
+        });
+    }
+});
+
+// Initial cart count update and show all products
 updateCartCount();
+filterProducts('all'); // Start with all products visible
 
 // Subscription form
 document.querySelector('.subscription')?.addEventListener('submit', (e) => {

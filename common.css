@@ -58,7 +58,13 @@ header {
     margin: 15px 0;
 }
 
+.sidebar nav .spacer {
+    height: 20px; /* Adjust this value for desired spacing */
+    margin: 20px 0; /* Extra margin to separate LOGIN/SIGN UP from others */
+}
+
 .sidebar nav a {
+    font-family: "Courier New";
     color: black;
     text-decoration: none;
     font-size: 14px;
@@ -66,10 +72,16 @@ header {
 }
 
 .sidebar nav a:hover {
-    color: #ff0000;
+    color: white;
+    background: black;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .sidebar nav .active {
+    color: white;
+    background: black;
+    text-decoration: underline;
     font-weight: bold;
 }
 
@@ -160,7 +172,11 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #ff0000;
+    text-decoration: underline;
+}
+
+.footer-links a.active {
+    text-decoration: underline;
 }
 
 .subscription {
@@ -201,102 +217,4 @@ footer {
 .copyright {
     font-size: 12px;
     text-align: center;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .sidebar {
-        width: 100%;
-        position: static;
-        height: auto;
-        padding: 10px; /* Reduced padding */
-    }
-
-    .logo {
-        font-size: 24px; /* Smaller logo */
-        margin-bottom: 10px;
-    }
-
-    .sidebar nav li {
-        margin: 10px 0; /* Reduced spacing */
-    }
-
-    .sidebar nav a {
-        font-size: 12px; /* Smaller font */
-    }
-
-    main {
-        padding: 10px; /* Reduced padding */
-        width: 100%;
-    }
-
-    .cart {
-        justify-content: center; /* Center cart links */
-        gap: 10px;
-    }
-
-    .cart a {
-        font-size: 12px; /* Smaller font */
-    }
-
-    .product-grid {
-        height: 400px; /* Reduced height for mobile */
-    }
-
-    .footer-container {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .footer-links {
-        gap: 10px;
-    }
-
-    .footer-links a {
-        font-size: 10px; /* Smaller font */
-    }
-
-    .subscription p {
-        font-size: 10px; /* Smaller font */
-    }
-
-    .subscription-input {
-        flex-direction: column; /* Stack input and button */
-        gap: 5px;
-    }
-
-    .subscription input,
-    .subscription button {
-        width: 100%; /* Full width */
-        font-size: 10px; /* Smaller font */
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        font-size: 10px; /* Even smaller marquee text */
-        height: 20px;
-    }
-
-    .container {
-        margin-top: 20px;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    .sidebar nav a {
-        font-size: 10px;
-    }
-
-    .cart a {
-        font-size: 10px;
-    }
 }
