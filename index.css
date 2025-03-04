@@ -1,0 +1,155 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    position: relative;
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: opacity 0.2s ease;
+}
+
+.product-info p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.product-info span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.new-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+.sold-out-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: yellow;
+    color: black;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 2px solid black;
+    z-index: 1;
+}
+
+.product-hover {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    width: 80%;
+    text-align: center;
+    z-index: 2;
+}
+
+.product:hover .product-hover {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.size-selector {
+    padding: 5px;
+    font-size: 12px;
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.add-to-cart {
+    background: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.add-to-cart:hover {
+    background: #ff0000;
+    color: white;
+}
+
+.add-to-cart:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 2 columns */
+        gap: 15px;
+    }
+
+    .product-image {
+        height: 150px; /* Smaller images */
+    }
+
+    .product-info p {
+        font-size: 12px;
+    }
+
+    .product-info span {
+        font-size: 14px;
+    }
+
+    .new-label,
+    .sold-out-label {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+
+    .product-hover {
+        padding: 10px;
+        width: 90%;
+    }
+
+    .size-selector,
+    .add-to-cart {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 column */
+        gap: 10px;
+    }
+
+    .product-image {
+        height: 120px; /* Even smaller images */
+    }
+
+    .product-info p {
+        font-size: 10px;
+    }
+
+    .product-info span {
+        font-size: 12px;
+    }
+}
