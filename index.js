@@ -52,53 +52,6 @@ function filterProducts(category) {
     const products = document.querySelectorAll('.product');
     products.forEach(product => {
         const productCategory = product.getAttribute('data-category');
-        if (category === 'all' || productCategory === category) {
-            product.style.display = 'block';
-        } else {
-            product.style.display = 'none';
-        }
-    });
-}
-
-// Sidebar navigation filtering (exclude WHATSAPP COMMUNITY)
-document.querySelectorAll('.sidebar nav a').forEach(link => {
-    const text = link.textContent.toLowerCase().replace(' ', '-');
-    if (text !== 'whatsapp-community') { // Skip the WhatsApp link
-        link.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default anchor behavior
-            const category = text;
-
-            // Remove active class from all links except WHATSAPP COMMUNITY and add to clicked one
-            document.querySelectorAll('.sidebar nav a').forEach(a => {
-                if (a.textContent.toLowerCase().replace(' ', '-') !== 'whatsapp-community') {
-                    a.classList.remove('active');
-                }
-            });
-            link.classList.add('active');
-
-            // Filter products
-            filterProducts(category === 'all' ? 'all' : category);
-        });
-    }
-});
-
-// Initial cart count update and show all products
-updateCartCount();
-filterProducts('all'); // Start with all products visible
-
-// Subscription form
-document.querySelector('.subscription')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = e.target.querySelector('input[type="email"]').value;
-    alert(`Subscribed with ${email}!`);
-    e.target.reset();
-});
-
-// Filter products by category
-function filterProducts(category) {
-    const products = document.querySelectorAll('.product');
-    products.forEach(product => {
-        const productCategory = product.getAttribute('data-category');
         const isNew = product.querySelector('.new-label') !== null;
         const isSoldOut = product.classList.contains('sold-out');
 
@@ -116,6 +69,43 @@ function filterProducts(category) {
     });
 }
 
+// Sidebar navigation filtering (exclude WHATSAPP COMMUNITY, LOGIN, and SIGN UP)
+document.querySelectorAll('.sidebar nav a').forEach(link => {
+    const text = link.textContent.toLowerCase().replace(' ', '-');
+    
+    // Excluir enlaces que no deben ser filtrados
+    if (text !== 'whatsapp-community' && text !== 'login' && text !== 'sign-up') {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevenir comportamiento predeterminado solo para categorías
+            const category = text;
+
+            // Remover clase 'active' de todos los enlaces de categoría y añadirla al seleccionado
+            document.querySelectorAll('.sidebar nav a').forEach(a => {
+                const aText = a.textContent.toLowerCase().replace(' ', '-');
+                if (aText !== 'whatsapp-community' && aText !== 'login' && aText !== 'sign-up') {
+                    a.classList.remove('active');
+                }
+            });
+            link.classList.add('active');
+
+            // Filtrar productos
+            filterProducts(category === 'all' ? 'all' : category);
+        });
+    }
+});
+
+// Initial cart count update and show all products
+updateCartCount();
+filterProducts('all'); // Start with all products visible
+
+// Subscription form
+document.querySelector('.subscription')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = e.target.querySelector('input[type="email"]').value;
+    alert(`Subscribed with ${email}!`);
+    e.target.reset();
+});
+
 // Leer el parámetro de categoría de la URL y aplicar el filtro
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -124,9 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remover la clase "active" de todos los enlaces y añadirla al seleccionado
     document.querySelectorAll('.sidebar nav a').forEach(link => {
         const linkText = link.textContent.toLowerCase().replace(' ', '-');
-        if (linkText === category && linkText !== 'whatsapp-community') {
+        if (linkText === category && linkText !== 'whatsapp-community' && linkText !== 'login' && linkText !== 'sign-up') {
             link.classList.add('active');
-        } else if (linkText !== 'whatsapp-community') {
+        } else if (linkText !== 'whatsapp-community' && linkText !== 'login' && linkText !== 'sign-up') {
             link.classList.remove('active');
         }
     });
