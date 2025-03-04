@@ -13,7 +13,7 @@ main {
 
 /* Scroll Container Styles */
 .scroll-container {
-    height: calc(100vh - 22.5px - 60px); /* Full height minus header and footer */
+    height: calc(100vh - 22.5px - 200px); /* Full height minus header and footer */
     overflow-y: auto; /* Enable vertical scrolling */
     scrollbar-width: thin; /* Firefox: thin scrollbar */
     scrollbar-color: #ff0000 #f1f1f1; /* Firefox: custom scrollbar colors */
