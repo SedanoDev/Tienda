@@ -5,7 +5,7 @@
 ![Fecha](https://img.shields.io/badge/Última%20Actualización-Marzo%202025-lightgrey?style=flat-square)
 
 ¡Bienvenidos a **BLGR - Streetwear Store**! Este proyecto, creado para la asignatura *Lenguajes de Marcas* de ASIR, es una tienda online ficticia dedicada a la moda urbana. Con una selección de hoodies, t-shirts, pantalones, shorts, chaquetas y accesorios, BLGR combina un diseño limpio y funcional con la vibra cruda del streetwear. ¡Prepárate para explorar el guardarropa definitivo!
-![Web](https://sedanodev.github.io/Tienda/)
+[Web](https://sedanodev.github.io/Tienda/)
 
 ---
 
